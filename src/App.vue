@@ -50,4 +50,7 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 </style>
