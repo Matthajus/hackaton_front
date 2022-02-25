@@ -11,4 +11,4 @@ library.add(fas);
 
 createApp(App).use(router).mount("#app");
 
-
+window.axios = require('axios');

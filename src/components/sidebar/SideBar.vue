@@ -10,7 +10,7 @@
 
     <div class="menu">
       <SideBarLink to="/" icon="fas fa-home">Home</SideBarLink>
-      <SideBarLink to="/about" icon="fas fa-a">About</SideBarLink>
+      <SideBarLink to="/list" icon="fas fa-list">ToDo Lists</SideBarLink>
     </div>
 
     <span class="collapse-icon"
