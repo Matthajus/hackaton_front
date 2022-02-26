@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import InfoView from "@/views/InfoView";
 
 const routes = [
   {
@@ -22,6 +23,11 @@ const routes = [
     component: () =>
       import("../views/DetailView"),
   },
+  {
+    path: "/info",
+    name: "info",
+    component: InfoView
+  }
 ];
 
 const router = createRouter({

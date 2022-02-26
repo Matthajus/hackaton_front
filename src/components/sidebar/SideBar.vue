@@ -9,8 +9,9 @@
     </h1>
 
     <div class="menu">
-      <SideBarLink to="/" icon="fas fa-home">Home</SideBarLink>
-      <SideBarLink to="/list" icon="fas fa-list">ToDo Lists</SideBarLink>
+      <SideBarLink to="/" icon="fas fa-home" class="marg">Home</SideBarLink>
+      <SideBarLink to="/list" icon="fas fa-list" class="marg">ToDo Lists</SideBarLink>
+      <SideBarLink to="/info" icon="fas fa-info" class="marg">Information</SideBarLink>
     </div>
 
     <span class="collapse-icon"
@@ -71,5 +72,9 @@ export default {
 
 .menu {
   margin-top: 100px;
+}
+
+.marg {
+  margin-bottom: 24px;
 }
 </style>
