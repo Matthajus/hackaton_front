@@ -12,7 +12,7 @@
           </div>
           <div class="size">
             <button class="edit-button" @click="onEditClick(list)">Edit</button>
-            <button class="open-button">Open</button>
+            <button class="open-button" @click="onOpenClick(list.id)">Open</button>
             <button class="delete-button" @click="onDeleteClick(list.id)">Delete</button>
           </div>
         </div>
@@ -38,8 +38,9 @@
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title modal-title-h4">Add New List</h4>
-                    <button type="button" class="close" @click="myModal=false">
+                    <h4 class="modal-title modal-title-h4" v-if="edit === false">Add New List</h4>
+                    <h4 class="modal-title modal-title-h4" v-else>Edit List</h4>
+                    <button type="button" class="close" @click="myModal=false; edit=false">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -108,9 +109,6 @@ export default {
       this.myModal = true;
     },
     onAddSubmitButtonClick() {
-      console.log(this.list_name);
-      console.log(this.list_description);
-      console.log(this.list_url);
       if (this.list_name !== '' && this.list_description !== '' && this.list_url !== '')
         ToDoListService.saveToDoList({
           name: this.list_name,
@@ -152,6 +150,11 @@ export default {
       this.list_url = '';
       this.edit = false;
       this.$router.go(0)
+    },
+    onOpenClick(id) {
+      console.log("click on open");
+      // this.$router.push({path: `/detail/${id}`});
+      this.$router.push({name: 'detail', params: {id: id}});
     }
   },
   created() {
@@ -218,7 +221,7 @@ section::after {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(15px);
 }
@@ -290,7 +293,7 @@ section::after {
   top: 10px;
   display: inline-block;
   padding: 12px 13px;
-  background: white;
+  background: rgba(0, 0, 0, 0);
   border-radius: 40px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -301,7 +304,7 @@ section::after {
 
 .edit-button {
   margin: 0 4px;
-  color: rgba(0, 0, 0, 0.3) !important;
+  color: midnightblue !important;
 }
 
 .open-button {
@@ -310,7 +313,7 @@ section::after {
 
 .delete-button {
   margin: 0 4px;
-  color: red !important;
+  color: darkred !important;
 }
 
 .modal-mask {
